@@ -8,6 +8,16 @@ plugins:
 provider:
   name: aws
   runtime: nodejs8.10
+  region: ap-northeast-1
+  endpointType: private
+  resourcePolicy:
+    - Effect: Allow
+      Principal: '*'
+      Action: execute-api:Invoke
+      Resource: arn:aws:execute-api:*:*:*
+      Condition:
+        StringEquals:
+          'aws:sourceVpce': 'vpce-***'
 
 functions:
   hello:
