@@ -17,7 +17,7 @@ provider:
       Resource: arn:aws:execute-api:*:*:*
       Condition:
         StringEquals:
-          'aws:sourceVpce': 'vpce-***'
+          'aws:sourceVpce': ${env:SOURCE_VPCE}
 
 functions:
   hello:
